@@ -1,0 +1,58 @@
+// SPDX-License-Identifier: ISC
+/*
+ * Copyright (c) 2010 Broadcom Corporation
+ */
+
+#ifndef	_IFX_HW_IDS_H_
+#define	_IFX_HW_IDS_H_
+
+#include <linux/pci_ids.h>
+#include <linux/mmc/sdio_ids.h>
+
+#define BRCM_USB_VENDOR_ID_BROADCOM	0x0a5c
+#define CY_USB_VENDOR_ID_CYPRESS	0x04b4
+#define BRCM_PCIE_VENDOR_ID_BROADCOM	PCI_VENDOR_ID_BROADCOM
+#define CY_PCIE_VENDOR_ID_CYPRESS	0x12be
+
+/* Chipcommon Core Chip IDs */
+#define CY_CC_43340_CHIP_ID		43340
+#define CY_CC_43362_CHIP_ID		43362
+#define CY_CC_4339_CHIP_ID		0x4339
+#define CY_CC_43430_CHIP_ID		43430
+#define CY_CC_4345_CHIP_ID		0x4345
+#define CY_CC_4354_CHIP_ID		0x4354
+#define CY_CC_4356_CHIP_ID		0x4356
+#define CY_CC_43570_CHIP_ID		43570
+#define CY_CC_4359_CHIP_ID		0x4359
+#define CY_CC_43430_CHIP_ID		43430
+#define CY_CC_43439_CHIP_ID		43439
+#define CY_CC_4373_CHIP_ID		0x4373
+#define CY_CC_43012_CHIP_ID		43012
+#define CY_CC_43439_CHIP_ID		43439
+#define CY_CC_89459_CHIP_ID		0x4355
+#define CY_CC_55572_CHIP_ID		0xd908
+#define CY_CC_55500_CHIP_ID		0xD8CC
+
+/* USB Device IDs */
+#define BRCM_USB_BCMFW_DEVICE_ID	0x0bdc
+#define CY_USB_4373_DEVICE_ID		0xbd29
+
+/* PCIE Device IDs */
+#define CY_PCIE_4354_DEVICE_ID		0x43df
+#define CY_PCIE_4354_RAW_DEVICE_ID	0x4354
+#define CY_PCIE_4356_DEVICE_ID		0x43ec
+#define CY_PCIE_43570_DEVICE_ID		0x43d9
+#define CY_PCIE_43570_RAW_DEVICE_ID	0xaa31
+#define CY_PCIE_4359_DEVICE_ID		0x43ef
+#define CY_PCIE_89459_DEVICE_ID         0x4415
+#define CY_PCIE_89459_RAW_DEVICE_ID     0x4355
+#define CY_PCIE_54591_DEVICE_ID         0x4417
+#define CY_PCIE_54590_DEVICE_ID		0x4416
+#define CY_PCIE_54594_DEVICE_ID		0x441a
+#define CY_PCIE_55572_DEVICE_ID		0xbd31
+#define CY_PCIE_4373_RAW_DEVICE_ID	0x4373
+#define CY_PCIE_4373_DUAL_DEVICE_ID	0x4418
+#define CY_PCIE_4373_2G_DEVICE_ID	0x4419
+#define CY_PCIE_4373_5G_DEVICE_ID	0x441a
+
+#endif				/* _IFX_HW_IDS_H_ */

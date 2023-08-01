@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config WLAN_VENDOR_INFINEON
+	bool "Infineon devices"
+	default y
+	help
+	  If you have a wireless card belonging to this class, say Y.
+
+	  Note that the answer to this question doesn't directly affect the
+	  kernel: saying N will just cause the configurator to skip all the
+	  questions about these cards. If you say Y, you will be asked for
+	  your specific card in the following questions.
+
+if WLAN_VENDOR_INFINEON
+
+config IFXUTIL
+	tristate
+
+source "drivers/net/wireless/infineon/ifxfmac/Kconfig"
+
+config IFX_TRACING
+	bool "Infineon device tracing"
+	depends on IFXFMAC
+	help
+	  If you say Y here, the Infineon wireless drivers will register
+	  with ftrace to dump event information into the trace ringbuffer.
+	  Tracing can be enabled at runtime to aid in debugging wireless
+	  issues. This option adds a small amount of overhead when tracing
+	  is disabled. If unsure, say Y to allow developers to better help
+	  you when wireless problems occur.
+
+config IFXDBG
+	bool "Infineon driver debug functions"
+	depends on IFXFMAC
+	select WANT_DEV_COREDUMP
+	help
+	  Selecting this enables additional code for debug purposes.
+
+config IFXFMAC_PCIE_BARWIN_SZ
+	bool "Custom PCIE BAR window size support for FullMAC driver"
+	depends on IFXFMAC
+	depends on PCI
+	default n
+	help
+	  If you say Y here, the FMAC driver will use custom PCIE BAR
+	  window size. Say Y to allow developers to use custom PCIE
+	  BAR window size when HOST PCIE IP can support less then 4MB
+	  BAR window.
+
+endif # WLAN_VENDOR_INFINEON

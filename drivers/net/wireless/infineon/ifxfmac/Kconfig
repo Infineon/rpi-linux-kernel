@@ -1,0 +1,59 @@
+config IFXFMAC
+	tristate "Infineon FullMAC WLAN driver"
+	depends on CFG80211
+	select IFXUTIL
+	help
+	  This module adds support for wireless adapters based on Infineon
+	  FullMAC chipsets. It has to work with at least one of the bus
+	  interface support. If you choose to build a module, it'll be called
+	  ifxfmac.ko.
+
+config IFXFMAC_PROTO_BCDC
+	bool
+
+config IFXFMAC_PROTO_MSGBUF
+	bool
+
+config IFXFMAC_SDIO
+	bool "SDIO bus interface support for FullMAC driver"
+	depends on (MMC = y || MMC = IFXFMAC)
+	depends on IFXFMAC
+	select IFXFMAC_PROTO_BCDC
+	select FW_LOADER
+	default y
+	help
+	  This option enables the SDIO bus interface support for Infineon
+	  IEEE802.11n embedded FullMAC WLAN driver. Say Y if you want to
+	  use the driver for a SDIO wireless card.
+
+config IFXFMAC_USB
+	bool "USB bus interface support for FullMAC driver"
+	depends on (USB = y || USB = IFXFMAC)
+	depends on IFXFMAC
+	select IFXFMAC_PROTO_BCDC
+	select FW_LOADER
+	default y
+	help
+	  This option enables the USB bus interface support for Infineon
+	  IEEE802.11n embedded FullMAC WLAN driver. Say Y if you want to
+	  use the driver for an USB wireless card.
+
+config IFXFMAC_PCIE
+	bool "PCIE bus interface support for FullMAC driver"
+	depends on IFXFMAC
+	depends on PCI
+	select IFXFMAC_PROTO_MSGBUF
+	select FW_LOADER
+	default y
+	help
+	  This option enables the PCIE bus interface support for Infineon
+	  IEEE802.11ac embedded FullMAC WLAN driver. Say Y if you want to
+	  use the driver for an PCIE wireless card.
+
+config IFXFMAC_BT_SHARED_SDIO
+	bool "FMAC shares SDIO bus to Bluetooth"
+	depends on IFXFMAC_SDIO
+	default n
+	help
+	  This option enables the feautre of sharing the SDIO bus interface
+	  between Cypress BT and WiFi host drivers.
